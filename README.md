@@ -9,7 +9,7 @@ GrowthLens is a single-script analytics project based on the real **Olist Brazil
 
 - **Original dataset:** [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce), anonymized Brazilian marketplace transactions from 2016–2018.
 - **Original publisher's CSV mirror:** [olist/work-at-olist-data](https://github.com/olist/work-at-olist-data/tree/master/datasets).
-- **Actual published size:** **99,441 orders**, **112,650 order-item records**, and **99,441 customer/order IDs** in the respective core files. Hence, *100K+ records/items*, **not** 100K+ distinct orders.
+- **Actual published size:** **99,441 orders**, **112,650 order-item records**, and **99,441 customer/order IDs** in the respective core files. 
 - **Data tables loaded:** orders, order items, customers, products, product-category English translation.
 - **Source license:** [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) according to the Kaggle dataset page. Follow its attribution, noncommercial, and share-alike requirements.
 - **Currency:** Brazilian reais (BRL). Category sales and order value are **sum of item prices, excluding freight**; they are not payment collections, refunds, margin, or profit.
