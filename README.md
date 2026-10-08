@@ -36,7 +36,7 @@ The first run needs internet access to download the published Olist CSVs. Subseq
 
 Published **comparison benchmarks** from other analyses of the Olist dataset (not measurements claimed for GrowthLens):
 
-| Published result | Value |
+| Key | Value |
 |---|---:|
 | Source data size | 99,441 orders; 112,650 order items | 
 | Top-five category share of product sales | ~41.58% 
