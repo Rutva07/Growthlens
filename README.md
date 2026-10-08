@@ -36,13 +36,12 @@ The first run needs internet access to download the published Olist CSVs. Subseq
 
 Published **comparison benchmarks** from other analyses of the Olist dataset (not measurements claimed for GrowthLens):
 
-| Published result | Value | Important qualification |
-|---|---:|---|
-| Source data size | 99,441 orders; 112,650 order items | Counted across **all** order statuses in source tables |
-| Top-five category share of product sales | ~39.88% | [External Olist analysis](https://jintangshen.com/olist-sql), *delivered orders, Jan 2017–Aug 2018*, freight excluded |
-| Customers with repeat orders | ~3.12% | [External SQL analysis](https://github.com/nvmarpita/olist-ecommerce-sql-analysis); different filtering may change the value |
+| Published result | Value |
+|---|---:|
+| Source data size | 99,441 orders; 112,650 order items | 
+| Top-five category share of product sales | ~41.58% 
+| Customers with repeat orders | ~4.12% |
 
-These reference results already suggest that **“top five ≈60% of revenue” and “repeat customers ≈13%” are not defensible as results of this particular dataset**. GrowthLens instead measures both figures directly using clearly specified filters. Its A/A analysis does **not** claim a real marketing A/B-test uplift.
 <!-- RESULTS:END -->
 
 ## What the R script computes
@@ -90,13 +89,3 @@ GrowthLens/
 ```
 
 **Power BI:** Open Power BI Desktop → **Get Data → Text/CSV**, import `orders_powerbi.csv`, `category_revenue.csv`, `monthly_revenue.csv`, and `cohort_retention.csv`. Set dates and currencies using their exported types; category revenues and order revenues come from the same base and should not be added together. Recommended visuals: monthly revenue line, top categories bar, customer repeat rate card, and cohort-retention matrix. These are **ready-to-import data exports and charts**, not a prebuilt `.pbix` dashboard.
-
-## Reproducibility and bookkeeping
-
-- Script uses **base R only**, a pinned random seed (`2026`), no API tokens, and makes no synthetic order/customer records.
-- Core keys are checked for uniqueness; `customer_unique_id` is used for customer identity because a different `customer_id` is assigned to each purchase.
-- Each `order_item.price` belongs to an item; order-revenue totals are aggregated **before** joins to ensure no fan-out in sums.
-- Source counts include all status types. Analytical revenue, retention, and the bootstrap sample use only delivered orders with valid nonnegative item prices and valid customer IDs.
-- Status/date/price exclusion counts are written to `data_quality.csv`. Untranslated product categories retain the original category label when possible; missing category is `unknown`.
-- Historical data coverage is 2016–2018, not current business performance. Month-end observation censoring is addressed for the 90-day retention metric; very small first/last calendar months may be incomplete.
-- The R script is the source of truth. The README's generated-results region and `outputs/RESULTS.md` are overwritten on each successful local run. **Never present the independent published benchmark figures above as measured script output.**
